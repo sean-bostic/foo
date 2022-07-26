@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -46,4 +48,24 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+
+    // hilt
+    implementation 'com.google.dagger:hilt-android:2.43'
+    kapt 'com.google.dagger:hilt-compiler:2.43'
+
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.43'
+    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.43'
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.43'
+    kaptTest 'com.google.dagger:hilt-compiler:2.43'
+
+    // For instrumentation tests
+    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.43'
+    androidTestAnnotationProcessor 'com.google.dagger:hilt-compiler:2.43'
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.43'
+    testAnnotationProcessor 'com.google.dagger:hilt-compiler:2.43'
 }
